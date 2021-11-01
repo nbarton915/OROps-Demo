@@ -29,7 +29,7 @@ jobs:
           optilogic_token: ${{ steps.get_token.outputs.optilogic_token }}
           optilogic_workspace: 'Perseus'
         run: |
-          job_key=$(python optilogic/create_job.py --api_key=$optilogic_token --workspace=$optilogic_workspace --directoryPath=$optilogic_directory_path --filename=$optilogic_filename)
+          job_key=$(python optilogic/create_job.py --api_key=$optilogic_token --workspace=$optilogic_workspace --directoryPath='$optilogic_directory_path' --filename=$optilogic_filename)
           echo "::set-output name=sync_job_key::$job_key"
           job_status=$(python optilogic/wait_for_job_completion.py --workspace=$optilogic_workspace --jobKey=$job_key)
           echo "Sync Job is $job_status"
