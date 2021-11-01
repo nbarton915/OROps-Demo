@@ -1,3 +1,6 @@
+from install_requirements import ensure_requirements
+ensure_requirements()
+
 import git
 import os
 
