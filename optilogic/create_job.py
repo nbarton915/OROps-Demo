@@ -19,7 +19,6 @@ response = requests.request('POST', url, headers=headers)
 job_object = json.loads(response.text)
 try:
 	job_key = job_object['jobKey']
-except KeyError as e:
+	print(job_key)
+except Exception as e:
 	print(f'There was an error with getting the jobKey\n\nResponse: {job_object}')
-	raise
-print(job_key)
