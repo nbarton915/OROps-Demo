@@ -6,7 +6,7 @@ import os
 
 REPOSITORY_DIRECTORY = f'{os.getcwd()}/..'
 
-repository = git.cmd.Git(git_dir)
+repository = git.cmd.Git(REPOSITORY_DIRECTORY)
 try:
     repository.pull()
 except:
