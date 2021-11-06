@@ -4,15 +4,15 @@ stages:
     cmd: python3 ./car_rental.py
     deps:
     - path: ../data/car_rental.dat
-      md5: 521ac38d3ab8b2bf838b56096bffd953
+      md5: 7485e6085b7c850be37c9fd400828d1e
       size: 705
     - path: ./car_rental.py
       md5: cbe29fc867244e7dd1df2ab2a19e1314
       size: 4315
     outs:
     - path: ../output/results.txt
-      md5: 1d14ac9f47902d4b31e8d7530748fe62
-      size: 508
+      md5: ea12bb7d667f25356e3ac5cb1691f159
+      size: 509
     - path: ../output/score.json
-      md5: c7aaab3d3022c9c01149e9934004b84d
-      size: 34
+      md5: 1137f398c60398e90ad8e0095ae1e05f
+      size: 35
