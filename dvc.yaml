@@ -4,5 +4,6 @@ stages:
     wdir: src
     deps:
     - ../data/car_rental.dat
+    - ./car_rental.py
     outs:
     - ../output/results.txt
