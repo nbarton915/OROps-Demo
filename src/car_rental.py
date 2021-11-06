@@ -8,6 +8,7 @@
 from pyomo.environ import *
 import math
 import os
+import json
 
 model = AbstractModel("Car rental")
 
@@ -76,6 +77,11 @@ results = solver.solve(instance)
 
 with open(f'{os.getcwd()}/../data/current_version.txt', 'r') as current_version_file:
     current_version = current_version_file.readline()
+
+with open('score.json', 'w') as scorefile:
+    scores = {}
+    scores['dollar_cost'] = value(instance.min_cost)
+    json.dump(scores, scorefile)
 
 #Python Script for printing the solution in the terminal
 for i in instance.excess_agencies:
