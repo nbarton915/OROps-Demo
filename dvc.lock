@@ -1,0 +1,8 @@
+schema: '2.0'
+stages:
+  simulate:
+    cmd: python3 ./car_rental.py
+    outs:
+    - path: ../output/results.txt
+      md5: cb71eff93b80a756133d56238ae933ab
+      size: 573

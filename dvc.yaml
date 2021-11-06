@@ -1,0 +1,6 @@
+stages:
+  simulate:
+    cmd: python3 ./car_rental.py
+    wdir: src
+    outs:
+    - ../output/results.txt
