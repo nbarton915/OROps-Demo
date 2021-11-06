@@ -7,9 +7,12 @@ stages:
       md5: 521ac38d3ab8b2bf838b56096bffd953
       size: 705
     - path: ./car_rental.py
-      md5: 2cbbf1dc5519994e741967fc2a31e9a4
-      size: 4147
+      md5: cbe29fc867244e7dd1df2ab2a19e1314
+      size: 4315
     outs:
     - path: ../output/results.txt
       md5: 1d14ac9f47902d4b31e8d7530748fe62
       size: 508
+    - path: ../output/score.json
+      md5: c7aaab3d3022c9c01149e9934004b84d
+      size: 34
