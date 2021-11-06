@@ -1,3 +1,6 @@
+github:
+  prebuilds:
+    master: true
 tasks:
   - init:
       'pip3 install dvc[all]'
