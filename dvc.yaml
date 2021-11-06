@@ -2,5 +2,7 @@ stages:
   simulate:
     cmd: python3 ./car_rental.py
     wdir: src
+    deps:
+    - ../data/car_rental.dat
     outs:
     - ../output/results.txt

@@ -2,7 +2,11 @@ schema: '2.0'
 stages:
   simulate:
     cmd: python3 ./car_rental.py
+    deps:
+    - path: ../data/car_rental.dat
+      md5: f98a42f58f86ff7adda88bf204499a84
+      size: 705
     outs:
     - path: ../output/results.txt
-      md5: cb71eff93b80a756133d56238ae933ab
+      md5: f019b3b78423db352e0541573a44df98
       size: 573
