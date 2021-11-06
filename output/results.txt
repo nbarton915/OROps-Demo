@@ -1,0 +1,17 @@
+Number of cars needed to move from agency 2 to agency 3 is 1.0
+
+Number of cars needed to move from agency 2 to agency 6 is 5.0
+
+Number of cars needed to move from agency 2 to agency 7 is 1.0
+
+Number of cars needed to move from agency 5 to agency 4 is 3.0
+
+Number of cars needed to move from agency 8 to agency 10 is 4.0
+
+Number of cars needed to move from agency 9 to agency 1 is 2.0
+
+Number of cars needed to move from agency 9 to agency 3 is 3.0
+
+Number of cars needed to move from agency 9 to agency 10 is 1.0
+
+The minimum total transportation cost is 152.63901632295628

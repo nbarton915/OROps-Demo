@@ -70,7 +70,7 @@ def need_satisfy(model, b):
 model.need_satisfy = Constraint(model.need_agencies, rule = need_satisfy)
 
 
-solver = SolverFactory('gurobi_direct')
+solver = SolverFactory('cbc')
 instance = model.create_instance(f"{os.getcwd()}/../data/car_rental.dat")
 results = solver.solve(instance)
 
@@ -90,7 +90,7 @@ if results.solver.termination_condition == TerminationCondition.infeasible:
 elif results.solver.termination_condition == TerminationCondition.unbounded:
     print('The model has an unbounded solution')
 elif results.solver.termination_condition == TerminationCondition.optimal:
-    output = open(f'{os.getcwd()}/../output/{current_version}_results.txt', 'w')
+    output = open(f'{os.getcwd()}/../output/results.txt', 'w')
     for i in instance.excess_agencies:
         for j in instance.need_agencies:
             if value(instance.move_ab[i,j]) > 0:

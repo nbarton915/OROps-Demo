@@ -2,5 +2,7 @@ github:
   prebuilds:
     master: true
 tasks:
-  - init:
+  - init: |
       'pip3 install dvc[all]'
+      'pip3 install pyomo'
+      'sudo apt install -y coinor-cbc'
