@@ -75,9 +75,6 @@ solver = SolverFactory('cbc')
 instance = model.create_instance(f"{os.getcwd()}/../data/car_rental.dat")
 results = solver.solve(instance)
 
-with open(f'{os.getcwd()}/../data/current_version.txt', 'r') as current_version_file:
-    current_version = current_version_file.readline()
-
 with open('../output/score.json', 'w') as scorefile:
     scores = {}
     scores['dollar_cost'] = value(instance.min_cost)
