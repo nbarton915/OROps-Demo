@@ -8,6 +8,7 @@
 from pyomo.environ import *
 import math
 import os
+import json
 
 model = AbstractModel("Car rental")
 
@@ -73,6 +74,11 @@ model.need_satisfy = Constraint(model.need_agencies, rule = need_satisfy)
 solver = SolverFactory('cbc')
 instance = model.create_instance(f"{os.getcwd()}/../data/car_rental.dat")
 results = solver.solve(instance)
+
+with open('../output/score.json', 'w') as scorefile:
+    scores = {}
+    scores['dollar_cost'] = value(instance.min_cost)
+    json.dump(scores, scorefile)
 
 #Python Script for printing the solution in the terminal
 for i in instance.excess_agencies:
