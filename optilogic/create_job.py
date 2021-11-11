@@ -10,7 +10,7 @@ parser.add_argument('--api_key', help='Optilogic Token')
 
 args = parser.parse_args()
 
-url = f'https://api.optilogic.app/v0/{args.workspace}/job?directoryPath={args.directoryPath}&filename={args.filename}'
+url = f'https://dev.api.optilogic.app/v0/{args.workspace}/job?directoryPath={args.directoryPath}&filename={args.filename}'
 headers = {
 	'X-API-KEY': f'{args.api_key}'
 	}

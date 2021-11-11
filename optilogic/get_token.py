@@ -8,7 +8,7 @@ parser.add_argument('--password', help='Optilogic Password')
 
 args = parser.parse_args()
 
-url = 'https://api.optilogic.app/v0/refreshApiKey'
+url = 'https://dev.api.optilogic.app/v0/refreshApiKey'
 headers = {
 	'X-USER-ID': f'{args.username}',
 	'X-USER-PASSWORD': f'{args.password}'
