@@ -47,8 +47,8 @@ jobs:
       -
         name: Solve Model
         env:
-          optilogic_directory_path: 'My Models/or-ops-demo/src'
-          optilogic_filename: 'car_rental.py'
+          optilogic_directory_path: 'My Models/or-ops-demo/optilogic'
+          optilogic_filename: 'run_experiment.py'
           optilogic_token: ${{ steps.get_token.outputs.optilogic_token }}
           optilogic_workspace: 'Gemini'
         run: |
