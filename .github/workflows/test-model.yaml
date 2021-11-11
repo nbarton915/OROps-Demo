@@ -33,3 +33,31 @@ jobs:
           echo "::set-output name=sync_job_key::$job_key"
           job_status=$(python optilogic/wait_for_job_completion.py --workspace=$optilogic_workspace --jobKey=$job_key --api_key=$optilogic_token)
           echo "Sync Job is $job_status"
+  run-test:
+      runs-on: ubuntu-latest
+      env:
+        WORKSPACE: 'Perseus'
+      steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Get New Optilogic Token
+        id: get_token
+        run: |
+          token=$(python optilogic/get_token.py --username=${{ secrets.OPTILOGIC_USERNAME }} --password=${{ secrets.OPTILOGIC_PASSWORD }})
+          echo "::set-output name=optilogic_token::$token"
+      -
+        name: Solve Model
+        env:
+          optilogic_directory_path: 'My Models/or-ops-demo/src'
+          optilogic_filename: 'car_rental.py'
+          optilogic_token: ${{ steps.get_token.outputs.optilogic_token }}
+          optilogic_workspace: 'Perseus'
+        run: |
+          job_key=$(python optilogic/create_job.py --api_key=$optilogic_token --workspace=$optilogic_workspace --directoryPath="${optilogic_directory_path}" --filename=$optilogic_filename)
+          echo "::set-output name=solve_job_key::$job_key"
+          job_status=$(python optilogic/wait_for_job_completion.py --workspace=$optilogic_workspace --jobKey=$job_key --api_key=$optilogic_token)
+          echo "Solve Job is $job_status"
+          [[ $job_status == "done" ]] || \
+          echo "::error::Job Had an Error. Check https://atlas.optilogic.app/dashboard/#/job/$job_key/$optilogic_workspace for logs";
