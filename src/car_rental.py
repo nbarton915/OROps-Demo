@@ -70,8 +70,6 @@ def need_satisfy(model, b):
     return sum(model.move_ab[a,b] for a in model.excess_agencies) == (model.required_cars[b] - model.present_cars[b])
 model.need_satisfy = Constraint(model.need_agencies, rule = need_satisfy)
 
-x = 1 / 0
-
 solver = SolverFactory('cbc')
 instance = model.create_instance(f"{os.getcwd()}/../data/car_rental.dat")
 results = solver.solve(instance)

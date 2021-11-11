@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  run-solve:
+    cmd: python3 car_rental.py
+    deps:
+    - path: ../data/car_rental.dat
+      md5: fc7b8924c16a768de4921a6358efed2f
+      size: 709
+    - path: car_rental.py
+      md5: 2d69ef25a02c29f7347b076aff70caa9
+      size: 4173
+    outs:
+    - path: ../output/results.txt
+      md5: cb71eff93b80a756133d56238ae933ab
+      size: 573
+    - path: ../output/score.json
+      md5: 164d2c9d4db2c34710c27bc721eb687a
+      size: 35
