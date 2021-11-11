@@ -9,7 +9,6 @@ jobs:
   sync-repository:
     runs-on: ubuntu-latest
     env:
-      WORKSPACE: 'Gemini'
     steps:
       -
         name: Checkout
@@ -27,7 +26,7 @@ jobs:
           optilogic_directory_path: 'My Models/or-ops-demo/optilogic'
           optilogic_filename: 'sync_repo.py'
           optilogic_token: ${{ steps.get_token.outputs.optilogic_token }}
-          optilogic_workspace: $WORKSPACE
+          optilogic_workspace: 'Gemini'
         run: |
           job_key=$(python optilogic/create_job.py --api_key=$optilogic_token --workspace=$optilogic_workspace --directoryPath="${optilogic_directory_path}" --filename=$optilogic_filename)
           echo "::set-output name=sync_job_key::$job_key"
@@ -37,7 +36,6 @@ jobs:
       runs-on: ubuntu-latest
       needs: sync-repository
       env:
-        WORKSPACE: 'Gemini'
       steps:
       -
         name: Checkout
@@ -54,7 +52,7 @@ jobs:
           optilogic_directory_path: 'My Models/or-ops-demo/src'
           optilogic_filename: 'car_rental.py'
           optilogic_token: ${{ steps.get_token.outputs.optilogic_token }}
-          optilogic_workspace: $WORKSPACE
+          optilogic_workspace: 'Gemini'
         run: |
           job_key=$(python optilogic/create_job.py --api_key=$optilogic_token --workspace=$optilogic_workspace --directoryPath="${optilogic_directory_path}" --filename=$optilogic_filename)
           echo "::set-output name=solve_job_key::$job_key"
