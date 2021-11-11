@@ -35,6 +35,7 @@ jobs:
           echo "Sync Job is $job_status"
   run-test:
       runs-on: ubuntu-latest
+      needs: sync-repository
       env:
         WORKSPACE: 'Perseus'
       steps:
